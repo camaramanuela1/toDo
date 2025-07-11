@@ -1,10 +1,9 @@
-function App() {
+import Text from "./components/text";
 
+function App() {
   return (
     <>
-      <div className='text-pink-dark'>
-        hello world!
-      </div>
+      <Text variant="body-sm-bold" className="text-pink-base">hello world!</Text>
     </>
   )
 }
