@@ -5,6 +5,7 @@ import Icon from "./components/icon";
 import SpinnerIcon from "./assets/icons/spinner.svg?react";
 import Badge from "./components/badge";
 import Button from "./components/button";
+import ButtonIcon from "./components/button-icon";
 
 function App() {
   return (
@@ -17,6 +18,11 @@ function App() {
       <Badge variant= "primary">2 de 5</Badge>
 
       <Button icon={PlusIcon}>Nova tarefa</Button>
+
+      <ButtonIcon icon={TrashIcon} />
+      <ButtonIcon icon={TrashIcon} variant="secondary" />
+      <ButtonIcon icon={TrashIcon} variant="terciary" />
+
     </>
   )
 }
