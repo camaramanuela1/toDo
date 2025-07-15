@@ -5,6 +5,7 @@ import Badge from "./components/badge";
 import Button from "./components/button";
 import ButtonIcon from "./components/button-icon";
 import InputText from "./components/input";
+import InputCheckbox from "./components/checkbox";
 
 import TrashIcon from "./assets/icons/trash.svg?react";
 import PlusIcon from "./assets/icons/plus.svg?react";
@@ -28,6 +29,8 @@ function App() {
       <br/><br/>
       <InputText />
 
+      <br/ ><br />
+      <InputCheckbox />
     </>
   )
 }
