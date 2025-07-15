@@ -1,8 +1,10 @@
 import Text from "./components/text";
 import TrashIcon from "./assets/icons/trash.svg?react";
+import PlusIcon from "./assets/icons/plus.svg?react";
 import Icon from "./components/icon";
 import SpinnerIcon from "./assets/icons/spinner.svg?react";
 import Badge from "./components/badge";
+import Button from "./components/button";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
 
       <Badge variant= "secondary">5</Badge>
       <Badge variant= "primary">2 de 5</Badge>
+
+      <Button icon={PlusIcon}>Nova tarefa</Button>
     </>
   )
 }
