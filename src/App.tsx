@@ -1,11 +1,13 @@
 import Text from "./components/text";
-import TrashIcon from "./assets/icons/trash.svg?react";
-import PlusIcon from "./assets/icons/plus.svg?react";
 import Icon from "./components/icon";
 import SpinnerIcon from "./assets/icons/spinner.svg?react";
 import Badge from "./components/badge";
 import Button from "./components/button";
 import ButtonIcon from "./components/button-icon";
+import InputText from "./components/input";
+
+import TrashIcon from "./assets/icons/trash.svg?react";
+import PlusIcon from "./assets/icons/plus.svg?react";
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
       <ButtonIcon icon={TrashIcon} />
       <ButtonIcon icon={TrashIcon} variant="secondary" />
       <ButtonIcon icon={TrashIcon} variant="terciary" />
+
+      <br/><br/>
+      <InputText />
 
     </>
   )
