@@ -9,6 +9,7 @@ import InputCheckbox from "./components/checkbox";
 
 import TrashIcon from "./assets/icons/trash.svg?react";
 import PlusIcon from "./assets/icons/plus.svg?react";
+import Card from "./components/card";
 
 function App() {
   return (
@@ -29,8 +30,11 @@ function App() {
       <br/><br/>
       <InputText />
 
-      <br/ ><br />
+      <br /><br />
       <InputCheckbox />
+
+      <br /><br />
+      <Card size="md">Hello Card!</Card>
     </>
   )
 }
