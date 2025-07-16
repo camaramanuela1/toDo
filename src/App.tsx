@@ -10,10 +10,11 @@ import InputCheckbox from "./components/checkbox";
 import TrashIcon from "./assets/icons/trash.svg?react";
 import PlusIcon from "./assets/icons/plus.svg?react";
 import Card from "./components/card";
+import Container from "./components/container";
 
 function App() {
   return (
-    <>
+    <Container>
       <Text variant="body-sm-bold" className="text-pink-base">hello world!</Text>
       <Icon svg={TrashIcon} className="fill-green-base" />
       <Icon svg={SpinnerIcon} animate />
@@ -33,9 +34,9 @@ function App() {
       <br /><br />
       <InputCheckbox />
 
-      <br /><br />
+      <br /><br /> 
       <Card size="md">Hello Card!</Card>
-    </>
+    </Container>
   )
 }
 
