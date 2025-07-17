@@ -1,5 +1,5 @@
 import Container from "../components/container";
 
 export default function PageHome(){
-    return <Container>Page home!</Container>
+    return <Container>Home page!</Container>
 }
