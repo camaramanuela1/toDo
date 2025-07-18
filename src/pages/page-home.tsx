@@ -1,6 +1,6 @@
 import Container from "../components/container";
 import TasksSummary from "../core-components/taks-summary";
-import TaskItem from "../core-components/task-item";
+import TaskList from "../core-components/tasks-list";
 
 export default function PageHome(){
     return <Container as="article" className="space-y-3">
@@ -8,6 +8,6 @@ export default function PageHome(){
             <TasksSummary />
         </header>
         
-        <TaskItem />
+        <TaskList />
     </Container>
 }
