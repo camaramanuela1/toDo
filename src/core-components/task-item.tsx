@@ -11,6 +11,7 @@ import PencilIcon from "../assets/icons/pencil-simple.svg?react";
 import XIcon from "../assets/icons/x.svg?react";
 import CheckIcon from "../assets/icons/check.svg?react";
 import InputText from "../components/input";
+import useTask from "../hooks/use-task";
 
 interface TaskItemProps {
     task: Task;
@@ -18,7 +19,8 @@ interface TaskItemProps {
 
 export default function TaskItem({task}: TaskItemProps){
     const [isEditing, setIsEditing] = React.useState(task?.state === 'creating');
-    const [taskTitle, setTaskTitle] = React.useState("");
+    const [taskTitle, setTaskTitle] = React.useState(task.title || "");
+    const { updateTask } = useTask();
 
     function handleEditTask() {
         setIsEditing(true);
@@ -34,7 +36,7 @@ export default function TaskItem({task}: TaskItemProps){
 
     function handleSaveTask(e: React.FormEvent<HTMLFormElement>){
         e.preventDefault();
-        console.log(task.id, taskTitle);
+        updateTask(task.id, {title: taskTitle});
         setIsEditing(false);
     }
 
@@ -53,7 +55,13 @@ export default function TaskItem({task}: TaskItemProps){
                 </div>
             ) : (
                 <form onSubmit={handleSaveTask} className="flex items-center gap-4">
-                    <InputText className="flex-1" onChange={handleChangeTaskTitle} required autoFocus />
+                    <InputText 
+                      value={taskTitle}
+                      className="flex-1" 
+                      onChange={handleChangeTaskTitle} 
+                      required 
+                      autoFocus 
+                    />
                     <div className="flex gap-1">
                         <ButtonIcon type="button" icon={XIcon} variant="secondary" onClick={handleExitTask} />
                         <ButtonIcon type="submit" icon={CheckIcon} variant="primary" />
