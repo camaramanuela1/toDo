@@ -20,14 +20,16 @@ interface TaskItemProps {
 export default function TaskItem({task}: TaskItemProps){
     const [isEditing, setIsEditing] = React.useState(task?.state === 'creating');
     const [taskTitle, setTaskTitle] = React.useState(task.title || "");
-    const { updateTask, updateTaskStatus } = useTask();
+    const { updateTask, updateTaskStatus, deleteTask } = useTask();
 
     function handleEditTask() {
         setIsEditing(true);
     }
 
-    function handleExitTask() {
-        setIsEditing(false);
+    function handleExitEditTask() {
+        if (task.state === "creating") {
+            deleteTask(task.id);
+        }
     }
 
     function handleChangeTaskTitle(e: React.ChangeEvent<HTMLInputElement>){
@@ -46,6 +48,10 @@ export default function TaskItem({task}: TaskItemProps){
         updateTaskStatus(task.id, checked);
     }
 
+    function handleDeleteTask() {
+        deleteTask(task.id);
+    }
+
     return(
         <Card size="md">
             {!isEditing ? (
@@ -58,7 +64,11 @@ export default function TaskItem({task}: TaskItemProps){
                         {task?.title}
                     </Text>
                     <div className="flex gap-1">
-                        <ButtonIcon icon={TrashIcon} variant="terciary" />
+                        <ButtonIcon 
+                            icon={TrashIcon} 
+                            variant="terciary"
+                            onClick={handleDeleteTask}
+                        />
                         <ButtonIcon icon={PencilIcon} variant="terciary" onClick={handleEditTask} />
                     </div>                
                 </div>
@@ -72,7 +82,7 @@ export default function TaskItem({task}: TaskItemProps){
                       autoFocus 
                     />
                     <div className="flex gap-1">
-                        <ButtonIcon type="button" icon={XIcon} variant="secondary" onClick={handleExitTask} />
+                        <ButtonIcon type="button" icon={XIcon} variant="secondary" onClick={handleExitEditTask} />
                         <ButtonIcon type="submit" icon={CheckIcon} variant="primary" />
                     </div>
                 </form>
